@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedIndexes: []
+      selectedIndexes: [],
+      colors: []
     };
   }
 
@@ -36,7 +37,7 @@ class App extends Component {
         <div className="container">
           <h1>Frame 1</h1>
           <Layer
-            defaultColor="#a4c639"
+            colors={this.state.colors}
             selectedIndexes={this.state.selectedIndexes}
             cols={5}
             rows={5}

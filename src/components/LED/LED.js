@@ -10,7 +10,7 @@ const style = {
   margin: '8px'
 };
 
-const LED = ({color, selected, onClick, index}) => {
+const LED = ({color = '#cccccc', selected, onClick, index}) => {
   const handleClick = () => {
     if(onClick) {
       onClick(index);
@@ -18,14 +18,14 @@ const LED = ({color, selected, onClick, index}) => {
   };
 
   const isColorDark = Color(color).dark();
-  const darkerColor = Color(color).darken(0.3).string();
+  const selectedColor = Color(color).darken(0.3).string();
 
   return (
     <div style={style}>
       <FlatButton
         onClick={() => {handleClick()}}
-        backgroundColor={selected ? darkerColor : color}
-        hoverColor={darkerColor}
+        backgroundColor={selected ? selectedColor : color}
+        hoverColor={selectedColor}
         icon={<LightbulbOutline color={isColorDark ? fullWhite : fullBlack} />}
       />
     </div>
