@@ -6,11 +6,13 @@ const LEDGrid = ({rows, cols, layers, defaultColor}) => {
 
   for (let i = 0; i < cols * rows * layers; i++) {
     if(i % (cols * rows) === 0) {
-      leds.push(<h3>Layer</h3>);
+      let layerNum = i / (cols * rows);
+      leds.push(<h3 key={"layer-" + layerNum}>Layer {layerNum + 1}</h3>);
     }
 
-    if(i % 5 === 0 && i !== 0) {
-      leds.push(<div key={"separator" + i} style={{
+    if(i % cols === 0 && i !== 0) {
+      let separatorNum = i / cols;
+      leds.push(<div key={"separator-" + (separatorNum - 1)} style={{
         height: 8
       }}></div>);
     }
