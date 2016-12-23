@@ -4,6 +4,20 @@ import LED from './components/LED';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selected: false
+    };
+  }
+
+  selectLED() {
+    this.setState({
+      selected: !this.state.selected
+    });
+  }
+
   render() {
     return (
       <div>
@@ -12,7 +26,9 @@ class App extends Component {
         />
         <div className="container">
           <h1>Frame 1</h1>
-          <LED color="#FF5722" onClick={() => {console.log('Clicked')}}/>
+          <LED color="#a4c639"
+            selected={this.state.selected}
+            onClick={() => this.selectLED()} />
         </div>
       </div>
     );
