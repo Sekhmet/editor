@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
+import { SketchPicker } from 'react-color';
 import _ from 'underscore';
 import Layer from './components/Layer';
 import './App.css';
@@ -10,7 +11,9 @@ class App extends Component {
     super(props);
     this.state = {
       selectedIndexes: [],
-      colors: []
+      colors: [],
+      currentColor: '#a4c639',
+      presetColors: []
     };
   }
 
@@ -30,6 +33,7 @@ class App extends Component {
   }
 
   handleSetColor() {
+    let that = this;
     let colors = [];
 
     _.each(this.state.colors, function(element, index) {
@@ -37,12 +41,18 @@ class App extends Component {
     });
 
     _.each(this.state.selectedIndexes, function(id) {
-      colors[id] = "red";
+      colors[id] = that.state.currentColor;
     });
 
     this.setState({
       colors: colors,
       selectedIndexes: []
+    });
+  }
+
+  handleChangeColor(color) {
+    this.setState({
+      currentColor: color.hex
     });
   }
 
@@ -59,6 +69,18 @@ class App extends Component {
           }
         />
         <div className="container">
+          <div style={{
+            position: 'fixed',
+            top: '80px',
+            right: '16px'
+          }}>
+            <SketchPicker
+              disableAlpha={true}
+              presetColors={this.state.presetColors}
+              color={this.state.currentColor}
+              onChangeComplete={(color) => this.handleChangeColor(color)}
+            />
+          </div>
           <h1>Frame 1</h1>
           <Layer
             colors={this.state.colors}
