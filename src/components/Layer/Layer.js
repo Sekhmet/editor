@@ -14,7 +14,7 @@ const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, onClick}) => {
   for (let i = 0; i < cols * rows * layers; i++) {
     if(i % (cols * rows) === 0) {
       let layerNum = i / (cols * rows);
-      leds.push(<h3 key={"layer-" + layerNum}>Layer {layerNum + 1}</h3>);
+      leds.push(<h5 key={"layer-" + layerNum}>Layer {layerNum + 1}</h5>);
     }
 
     if(i % cols === 0 && i !== 0) {

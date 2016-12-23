@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import Divider from 'material-ui/Divider';
 import _ from 'underscore';
 import Layer from './components/Layer';
 import ColorPalette from './components/ColorPalette';
@@ -12,7 +15,8 @@ class App extends Component {
       selectedIndexes: [],
       colors: [],
       currentColor: '#a4c639',
-      presetColors: []
+      presetColors: [],
+      currentFrame: 0
     };
   }
 
@@ -69,6 +73,12 @@ class App extends Component {
     });
   }
 
+  handleFrameChange = (event, index, value) => {
+    this.setState({
+      currentFrame: value
+    });
+  }
+
   render() {
     return (
       <div>
@@ -85,7 +95,16 @@ class App extends Component {
             onColorChange={(color) => this.handleChangeColor(color)}
             onColorSet={() => this.handleSetColor()}
           />
-          <h1>Frame 1</h1>
+          <SelectField
+            floatingLabelText="Current frame"
+            onChange={this.handleFrameChange}
+            value={this.state.currentFrame}>
+            <MenuItem value={0} primaryText="Frame 1" />
+            <MenuItem value={1} primaryText="Frame 2" />
+            <Divider />
+            <MenuItem value={2001} primaryText="Create frame" />
+            <MenuItem value={2002} primaryText="Duplicate frame" />
+          </SelectField>
           <Layer
             colors={this.state.colors}
             selectedIndexes={this.state.selectedIndexes}
