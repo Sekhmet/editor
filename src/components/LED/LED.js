@@ -5,6 +5,11 @@ import {fullWhite, fullBlack} from 'material-ui/styles/colors';
 import Color from 'color';
 import './LED.css';
 
+const style = {
+  display: 'inline',
+  margin: '8px'
+};
+
 const LED = ({color, selected, onClick}) => {
   const handleClick = () => {
     if(onClick) {
@@ -16,7 +21,7 @@ const LED = ({color, selected, onClick}) => {
   const darkerColor = Color(color).darken(0.3).string();
 
   return (
-    <div>
+    <div style={style}>
       <FlatButton
         onClick={() => {handleClick()}}
         backgroundColor={selected ? darkerColor : color}
