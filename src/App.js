@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
 import _ from 'underscore';
 import Layer from './components/Layer';
 import './App.css';
@@ -28,6 +29,26 @@ class App extends Component {
     }
   }
 
+  handleSetColor() {
+    let colors = [];
+    _.each(this.state.selectedIndexes, function(id) {
+      colors[id] = "red";
+    });
+
+    console.log(this.state.selectedIndexes);
+    console.log(colors);
+
+    this.setState({
+      colors: [
+        ...this.state.colors,
+        ...colors
+      ],
+      selectedIndexes: []
+    });
+
+
+  }
+
   render() {
     return (
       <div>
@@ -35,6 +56,7 @@ class App extends Component {
           title="Kuubik"
         />
         <div className="container">
+          <FlatButton label="Default" onClick={() => this.handleSetColor()} />
           <h1>Frame 1</h1>
           <Layer
             colors={this.state.colors}
