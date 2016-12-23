@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import { SketchPicker } from 'react-color';
 import _ from 'underscore';
 import Layer from './components/Layer';
+import ColorPalette from './components/ColorPalette';
 import './App.css';
 
 class App extends Component {
@@ -80,23 +79,12 @@ class App extends Component {
           title="Kuubik"
         />
         <div className="container">
-          <div style={{
-            position: 'fixed',
-            top: '80px',
-            right: '16px'
-          }}>
-            <SketchPicker
-              disableAlpha={true}
-              presetColors={this.state.presetColors}
-              color={this.state.currentColor}
-              onChangeComplete={(color) => this.handleChangeColor(color)}
-            />
-            <RaisedButton
-              style={{marginTop: '8px'}}
-              fullWidth={true}
-              label="Set colors"
-              onClick={() => this.handleSetColor()} />
-          </div>
+          <ColorPalette
+            presetColors={this.state.presetColors}
+            color={this.state.currentColor}
+            onColorChange={(color) => this.handleChangeColor(color)}
+            onColorSet={() => this.handleSetColor()}
+          />
           <h1>Frame 1</h1>
           <Layer
             colors={this.state.colors}
