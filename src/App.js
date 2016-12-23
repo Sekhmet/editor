@@ -50,10 +50,15 @@ class App extends Component {
     return (
       <div>
         <AppBar
+          style={{
+            position: 'fixed'
+          }}
           title="Kuubik"
+          iconElementRight={
+            <FlatButton label="Set colors" onClick={() => this.handleSetColor()} />
+          }
         />
         <div className="container">
-          <FlatButton label="Default" onClick={() => this.handleSetColor()} />
           <h1>Frame 1</h1>
           <Layer
             colors={this.state.colors}
