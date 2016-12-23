@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import { SketchPicker } from 'react-color';
 import _ from 'underscore';
 import Layer from './components/Layer';
@@ -78,9 +78,6 @@ class App extends Component {
             position: 'fixed'
           }}
           title="Kuubik"
-          iconElementRight={
-            <FlatButton label="Set colors" onClick={() => this.handleSetColor()} />
-          }
         />
         <div className="container">
           <div style={{
@@ -94,6 +91,11 @@ class App extends Component {
               color={this.state.currentColor}
               onChangeComplete={(color) => this.handleChangeColor(color)}
             />
+            <RaisedButton
+              style={{marginTop: '8px'}}
+              fullWidth={true}
+              label="Set colors"
+              onClick={() => this.handleSetColor()} />
           </div>
           <h1>Frame 1</h1>
           <Layer
