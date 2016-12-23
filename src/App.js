@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
 import _ from 'underscore';
 import Layer from './components/Layer';
+import ColorPalette from './components/ColorPalette';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +10,9 @@ class App extends Component {
     super(props);
     this.state = {
       selectedIndexes: [],
-      colors: []
+      colors: [],
+      currentColor: '#a4c639',
+      presetColors: []
     };
   }
 
@@ -30,6 +32,21 @@ class App extends Component {
   }
 
   handleSetColor() {
+    //TODO: Limit presetColors to some amount.
+    if(!_.contains(this.state.presetColors, this.state.currentColor)) {
+      this.setState({
+        presetColors: [
+          ...this.state.presetColors,
+          this.state.currentColor
+        ]
+      });
+    }
+
+    if(this.state.selectedIndexes.length === 0) {
+      return;
+    }
+
+    let that = this;
     let colors = [];
 
     _.each(this.state.colors, function(element, index) {
@@ -37,7 +54,7 @@ class App extends Component {
     });
 
     _.each(this.state.selectedIndexes, function(id) {
-      colors[id] = "red";
+      colors[id] = that.state.currentColor;
     });
 
     this.setState({
@@ -46,14 +63,28 @@ class App extends Component {
     });
   }
 
+  handleChangeColor(color) {
+    this.setState({
+      currentColor: color.hex
+    });
+  }
+
   render() {
     return (
       <div>
         <AppBar
+          style={{
+            position: 'fixed'
+          }}
           title="Kuubik"
         />
         <div className="container">
-          <FlatButton label="Default" onClick={() => this.handleSetColor()} />
+          <ColorPalette
+            presetColors={this.state.presetColors}
+            color={this.state.currentColor}
+            onColorChange={(color) => this.handleChangeColor(color)}
+            onColorSet={() => this.handleSetColor()}
+          />
           <h1>Frame 1</h1>
           <Layer
             colors={this.state.colors}
