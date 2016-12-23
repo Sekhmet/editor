@@ -1,14 +1,11 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { SketchPicker } from 'react-color';
+import './ColorPalette.css';
 
 const ColorPalette = ({presetColors, color, onColorChange, onColorSet}) => {
   return (
-    <div style={{
-      position: 'fixed',
-      top: '80px',
-      right: '16px'
-    }}>
+    <div className="color-palette">
       <SketchPicker
         disableAlpha={true}
         presetColors={presetColors}
