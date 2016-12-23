@@ -16,7 +16,7 @@ const LEDGrid = ({rows, cols, layers, defaultColor}) => {
         height: 8
       }}></div>);
     }
-    leds.push(<LED key={i} color={defaultColor} />);
+    leds.push(<LED key={i} index={i} color={defaultColor} onClick={(index) => console.log(index)} />);
   }
 
   return (

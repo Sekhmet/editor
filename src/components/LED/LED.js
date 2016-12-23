@@ -10,10 +10,10 @@ const style = {
   margin: '8px'
 };
 
-const LED = ({color, selected, onClick}) => {
+const LED = ({color, selected, onClick, index}) => {
   const handleClick = () => {
     if(onClick) {
-      onClick();
+      onClick(index);
     }
   };
 
