@@ -33,6 +33,20 @@ class App extends Component {
   }
 
   handleSetColor() {
+    //TODO: Limit presetColors to some amount.
+    if(!_.contains(this.state.presetColors, this.state.currentColor)) {
+      this.setState({
+        presetColors: [
+          ...this.state.presetColors,
+          this.state.currentColor
+        ]
+      });
+    }
+
+    if(this.state.selectedIndexes.length === 0) {
+      return;
+    }
+
     let that = this;
     let colors = [];
 
