@@ -12,7 +12,7 @@ class App extends Component {
         />
         <div className="container">
           <h1>Frame 1</h1>
-          <LED />
+          <LED color="#FF5722" onClick={() => {console.log('Clicked')}}/>
         </div>
       </div>
     );

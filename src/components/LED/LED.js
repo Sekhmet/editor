@@ -7,20 +7,20 @@ import './LED.css';
 
 
 class LED extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: '#795548'
-    };
+  handleClick() {
+    if(this.props.onClick) {
+      this.props.onClick();
+    }
   }
 
   render() {
     return (
       <div>
         <FlatButton
-          backgroundColor={this.state.color}
-          hoverColor={Color(this.state.color).darken(0.3).string()}
-          icon={<LightbulbOutline color={Color(this.state.color).dark() ? fullWhite : fullBlack} />}
+          onClick={() => {this.handleClick()}}
+          backgroundColor={this.props.color}
+          hoverColor={Color(this.props.color).darken(0.3).string()}
+          icon={<LightbulbOutline color={Color(this.props.color).dark() ? fullWhite : fullBlack} />}
         />
       </div>
     );
