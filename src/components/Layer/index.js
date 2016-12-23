@@ -1,3 +1,3 @@
-import LEDGrid from './LEDGrid';
+import Layer from './Layer';
 
-export default LEDGrid;
+export default Layer;
