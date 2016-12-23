@@ -31,22 +31,19 @@ class App extends Component {
 
   handleSetColor() {
     let colors = [];
+
+    _.each(this.state.colors, function(element, index) {
+      colors[index] = element;
+    });
+
     _.each(this.state.selectedIndexes, function(id) {
       colors[id] = "red";
     });
 
-    console.log(this.state.selectedIndexes);
-    console.log(colors);
-
     this.setState({
-      colors: [
-        ...this.state.colors,
-        ...colors
-      ],
+      colors: colors,
       selectedIndexes: []
     });
-
-
   }
 
   render() {
