@@ -1,7 +1,8 @@
 import React from 'react';
+import _ from 'underscore';
 import LED from '../LED';
 
-const LEDGrid = ({rows, cols, layers, defaultColor, onClick}) => {
+const LEDGrid = ({rows, cols, layers, defaultColor, selectedIndexes, onClick}) => {
   const handleClick = (index) => {
     if(onClick) {
       onClick(index);
@@ -22,7 +23,7 @@ const LEDGrid = ({rows, cols, layers, defaultColor, onClick}) => {
         height: 8
       }}></div>);
     }
-    leds.push(<LED key={i} index={i} color={defaultColor} onClick={(index) => handleClick(index)} />);
+    leds.push(<LED key={i} index={i} selected={_.contains(selectedIndexes, i)} color={defaultColor} onClick={(index) => handleClick(index)} />);
   }
 
   return (
