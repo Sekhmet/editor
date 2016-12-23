@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
 import FlatButton from 'material-ui/FlatButton';
-import FontIcon from 'material-ui/FontIcon';
 import LightbulbOutline from 'material-ui/svg-icons/action/lightbulb-outline';
-import {fullWhite} from 'material-ui/styles/colors';
+import {fullWhite, fullBlack} from 'material-ui/styles/colors';
+import Color from 'color';
 import './LED.css';
 
-const style = {
-  margin: 12,
-};
 
 class LED extends Component {
-    render() {
-      return (
-        <div>
-          <FlatButton
-            backgroundColor="#a4c639"
-            icon={<LightbulbOutline color={fullWhite} />}
-            style={style}
-          />
-        </div>
-      );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: '#795548'
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <FlatButton
+          backgroundColor={this.state.color}
+          hoverColor={Color(this.state.color).darken(0.3).string()}
+          icon={<LightbulbOutline color={Color(this.state.color).dark() ? fullWhite : fullBlack} />}
+        />
+      </div>
+    );
+  }
 }
 
 export default LED;
