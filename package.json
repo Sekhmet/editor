@@ -6,10 +6,12 @@
     "react-scripts": "0.8.4"
   },
   "dependencies": {
+    "color": "^1.0.3",
     "material-ui": "^0.16.5",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-tap-event-plugin": "^2.0.1",
+    "underscore": "^1.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
