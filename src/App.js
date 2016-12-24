@@ -78,7 +78,10 @@ class App extends Component {
   handleFrameChange = (event, index, value) => {
     switch (value) {
       case -1:
-        console.log('Create new frame');
+        this.setState({
+          frameCount: this.state.frameCount + 1,
+          currentFrame: this.state.frameCount
+        });
         break;
       case -2:
         //TODO: Duplicate frame
