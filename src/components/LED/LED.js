@@ -5,8 +5,6 @@ import FlatButton from 'material-ui/FlatButton';
 import LightbulbOutline from 'material-ui/svg-icons/action/lightbulb-outline';
 import {fullWhite, fullBlack} from 'material-ui/styles/colors';
 
-import './LED.css';
-
 const style = {
   display: 'inline',
   margin: '8px'

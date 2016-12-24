@@ -3,20 +3,27 @@ import _ from 'underscore';
 
 import LED from '../LED';
 
+import './Layer.css';
+
 const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onClick}) => {
   let leds = [];
 
   for (let i = 0; i < cols * rows * layers; i++) {
     if (i % (cols * rows) === 0) {
       let layerNum = i / (cols * rows);
-      leds.push(<h5 key={"layer-" + layerNum}>Layer {layerNum + 1}</h5>);
+      leds.push(
+        <h5 key={"layer-" + layerNum}>Layer {layerNum + 1}</h5>
+      );
     }
 
     if (i % cols === 0 && i !== 0) {
       let separatorNum = i / cols;
-      leds.push(<div key={"separator-" + (separatorNum - 1)} style={{
-        height: 8
-      }}></div>);
+      leds.push(
+        <div
+          className="separator"
+          key={"separator-" + (separatorNum - 1)}
+        />
+      );
     }
 
     let currentColor = _.findWhere(colors, { id: i + (currentFrame * 125) });
