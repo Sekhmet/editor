@@ -13,19 +13,13 @@ const style = {
 };
 
 const LED = ({color = '#cccccc', selected, onClick, index}) => {
-  const handleClick = () => {
-    if (onClick) {
-      onClick(index);
-    }
-  };
-
   const isColorDark = Color(color).dark();
   const selectedColor = Color(color).darken(0.3).string();
 
   return (
     <div style={style}>
       <FlatButton
-        onClick={() => {handleClick()}}
+        onClick={() => onClick(index)}
         backgroundColor={selected ? selectedColor : color}
         hoverColor={selectedColor}
         icon={<LightbulbOutline color={isColorDark ? fullWhite : fullBlack} />}
