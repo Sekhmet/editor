@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import Divider from 'material-ui/Divider';
 import _ from 'underscore';
 import Layer from './components/Layer';
 import ColorPalette from './components/ColorPalette';
@@ -12,7 +15,9 @@ class App extends Component {
       selectedIndexes: [],
       colors: [],
       currentColor: '#a4c639',
-      presetColors: []
+      presetColors: [],
+      currentFrame: 0,
+      frameCount: 1
     };
   }
 
@@ -49,16 +54,17 @@ class App extends Component {
     let that = this;
     let colors = [];
 
-    _.each(this.state.colors, function(element, index) {
-      colors[index] = element;
-    });
-
+    //TODO: Make offset flexible
+    //FIXME: This shouldn't look like this. But it works.
     _.each(this.state.selectedIndexes, function(id) {
-      colors[id] = that.state.currentColor;
+      colors.push({
+        id: id + (that.state.currentFrame * 125),
+        color: that.state.currentColor
+      });
     });
 
     this.setState({
-      colors: colors,
+      colors: this.state.colors.concat(colors),
       selectedIndexes: []
     });
   }
@@ -69,7 +75,37 @@ class App extends Component {
     });
   }
 
+  handleFrameChange = (event, index, value) => {
+    switch (value) {
+      case -1:
+        this.setState({
+          frameCount: this.state.frameCount + 1,
+          currentFrame: this.state.frameCount
+        });
+        break;
+      case -2:
+        //TODO: Duplicate frame
+        console.log('Not implemented');
+        break;
+      default:
+        if (value >= 0) {
+          this.setState({
+            currentFrame: value
+          });
+        }
+    }
+  }
+
   render() {
+
+    const framesList = [];
+
+    for (let i = 0; i < this.state.frameCount; i++) {
+      framesList.push(
+        <MenuItem key={i} value={i} primaryText={"Frame " + (i + 1)} />
+      );
+    }
+
     return (
       <div>
         <AppBar
@@ -85,9 +121,18 @@ class App extends Component {
             onColorChange={(color) => this.handleChangeColor(color)}
             onColorSet={() => this.handleSetColor()}
           />
-          <h1>Frame 1</h1>
+          <SelectField
+            floatingLabelText="Current frame"
+            onChange={this.handleFrameChange}
+            value={this.state.currentFrame}>
+            {framesList}
+            <Divider />
+            <MenuItem value={-1} primaryText="Create frame" />
+            <MenuItem value={-2} primaryText="Duplicate frame" />
+          </SelectField>
           <Layer
             colors={this.state.colors}
+            currentFrame={this.state.currentFrame}
             selectedIndexes={this.state.selectedIndexes}
             cols={5}
             rows={5}
