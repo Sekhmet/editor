@@ -112,8 +112,8 @@ class App extends Component {
             value={this.state.currentFrame}>
             {framesList}
             <Divider />
-            <MenuItem value={2001} primaryText="Create frame" />
-            <MenuItem value={2002} primaryText="Duplicate frame" />
+            <MenuItem value={-1} primaryText="Create frame" />
+            <MenuItem value={-2} primaryText="Duplicate frame" />
           </SelectField>
           <Layer
             colors={this.state.colors}
