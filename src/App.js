@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   handleLEDClick(index) {
-    if(_.contains(this.state.selectedIndexes, index)) {
+    if (_.contains(this.state.selectedIndexes, index)) {
       this.setState({
         selectedIndexes: _.without(this.state.selectedIndexes, index)
       });
@@ -39,7 +39,7 @@ class App extends Component {
 
   handleColorSet() {
     //TODO: Limit presetColors to some amount.
-    if(!_.contains(this.state.presetColors, this.state.currentColor)) {
+    if (!_.contains(this.state.presetColors, this.state.currentColor)) {
       this.setState({
         presetColors: [
           ...this.state.presetColors,
@@ -48,7 +48,7 @@ class App extends Component {
       });
     }
 
-    if(this.state.selectedIndexes.length === 0) {
+    if (this.state.selectedIndexes.length === 0) {
       return;
     }
 

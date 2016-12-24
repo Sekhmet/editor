@@ -14,7 +14,7 @@ const style = {
 
 const LED = ({color = '#cccccc', selected, onClick, index}) => {
   const handleClick = () => {
-    if(onClick) {
+    if (onClick) {
       onClick(index);
     }
   };
