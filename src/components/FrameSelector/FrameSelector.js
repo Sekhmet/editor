@@ -16,7 +16,7 @@ const FrameSelector = ({currentFrame, frameCount, onChange}) => {
   return (
     <SelectField
       floatingLabelText="Current frame"
-      onChange={onChange}
+      onChange={(event, index, value) => onChange(value)}
       value={currentFrame}>
       {frames}
       <Divider />
