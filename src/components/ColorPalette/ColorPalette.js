@@ -1,6 +1,8 @@
 import React from 'react';
+
 import RaisedButton from 'material-ui/RaisedButton';
 import { SketchPicker } from 'react-color';
+
 import './ColorPalette.css';
 
 const ColorPalette = ({presetColors, color, onColorChange, onColorSet}) => {

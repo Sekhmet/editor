@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import AppBar from 'material-ui/AppBar';
 import _ from 'underscore';
-import Layer from './components/Layer';
-import FrameSelector from './components/FrameSelector';
+
+import AppBar from 'material-ui/AppBar';
+
 import ColorPalette from './components/ColorPalette';
+import FrameSelector from './components/FrameSelector';
+import Layer from './components/Layer';
+
 import './App.css';
 
 class App extends Component {
@@ -19,8 +22,8 @@ class App extends Component {
     };
   }
 
-  handleClick(index) {
-    if(_.contains(this.state.selectedIndexes, index)) {
+  handleLEDClick(index) {
+    if (_.contains(this.state.selectedIndexes, index)) {
       this.setState({
         selectedIndexes: _.without(this.state.selectedIndexes, index)
       });
@@ -34,9 +37,9 @@ class App extends Component {
     }
   }
 
-  handleSetColor() {
+  handleColorSet() {
     //TODO: Limit presetColors to some amount.
-    if(!_.contains(this.state.presetColors, this.state.currentColor)) {
+    if (!_.contains(this.state.presetColors, this.state.currentColor)) {
       this.setState({
         presetColors: [
           ...this.state.presetColors,
@@ -45,7 +48,7 @@ class App extends Component {
       });
     }
 
-    if(this.state.selectedIndexes.length === 0) {
+    if (this.state.selectedIndexes.length === 0) {
       return;
     }
 
@@ -67,13 +70,13 @@ class App extends Component {
     });
   }
 
-  handleChangeColor(color) {
+  handleColorChange(color) {
     this.setState({
       currentColor: color.hex
     });
   }
 
-  handleFrameChange = (event, index, value) => {
+  handleFrameChange = (value) => {
     switch (value) {
       case -1:
         this.setState({
@@ -107,13 +110,13 @@ class App extends Component {
           <ColorPalette
             presetColors={this.state.presetColors}
             color={this.state.currentColor}
-            onColorChange={(color) => this.handleChangeColor(color)}
-            onColorSet={() => this.handleSetColor()}
+            onColorChange={(color) => this.handleColorChange(color)}
+            onColorSet={() => this.handleColorSet()}
           />
           <FrameSelector
             currentFrame={this.state.currentFrame}
             frameCount={this.state.frameCount}
-            onChange={this.handleFrameChange}
+            onChange={(frame) => this.handleFrameChange(frame)}
           />
           <Layer
             colors={this.state.colors}
@@ -122,7 +125,7 @@ class App extends Component {
             cols={5}
             rows={5}
             layers={5}
-            onClick={(index) => this.handleClick(index)}/>
+            onClick={(index) => this.handleLEDClick(index)}/>
         </div>
       </div>
     );
