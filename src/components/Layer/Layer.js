@@ -4,12 +4,6 @@ import _ from 'underscore';
 import LED from '../LED';
 
 const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onClick}) => {
-  const handleClick = (index) => {
-    if (onClick) {
-      onClick(index);
-    }
-  }
-
   let leds = [];
 
   for (let i = 0; i < cols * rows * layers; i++) {
@@ -32,13 +26,15 @@ const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onC
       rawColor = currentColor.color;
     }
 
-    leds.push(<LED
-      key={i}
-      index={i}
-      selected={_.contains(selectedIndexes, i)}
-      color={rawColor}
-      onClick={(index) => handleClick(index)}
-    />);
+    leds.push(
+      <LED
+        key={i}
+        index={i}
+        selected={_.contains(selectedIndexes, i)}
+        color={rawColor}
+        onClick={(index) => onClick(index)}
+      />
+    );
   }
 
   return (
