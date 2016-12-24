@@ -16,7 +16,8 @@ class App extends Component {
       colors: [],
       currentColor: '#a4c639',
       presetColors: [],
-      currentFrame: 0
+      currentFrame: 0,
+      frameCount: 1
     };
   }
 
@@ -81,6 +82,15 @@ class App extends Component {
   }
 
   render() {
+
+    const framesList = [];
+
+    for (let i = 0; i < this.state.frameCount; i++) {
+      framesList.push(
+        <MenuItem key={i} value={i} primaryText={"Frame " + (i + 1)} />
+      );
+    }
+
     return (
       <div>
         <AppBar
@@ -100,8 +110,7 @@ class App extends Component {
             floatingLabelText="Current frame"
             onChange={this.handleFrameChange}
             value={this.state.currentFrame}>
-            <MenuItem value={0} primaryText="Frame 1" />
-            <MenuItem value={1} primaryText="Frame 2" />
+            {framesList}
             <Divider />
             <MenuItem value={2001} primaryText="Create frame" />
             <MenuItem value={2002} primaryText="Duplicate frame" />
