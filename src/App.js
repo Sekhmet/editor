@@ -53,16 +53,17 @@ class App extends Component {
     let that = this;
     let colors = [];
 
-    _.each(this.state.colors, function(element, index) {
-      colors[index] = element;
-    });
-
+    //TODO: Make offset flexible
+    //FIXME: This shouldn't look like this. But it works.
     _.each(this.state.selectedIndexes, function(id) {
-      colors[id] = that.state.currentColor;
+      colors.push({
+        id: id + (that.state.currentFrame * 125),
+        color: that.state.currentColor
+      });
     });
 
     this.setState({
-      colors: colors,
+      colors: this.state.colors.concat(colors),
       selectedIndexes: []
     });
   }
@@ -107,6 +108,7 @@ class App extends Component {
           </SelectField>
           <Layer
             colors={this.state.colors}
+            currentFrame={this.state.currentFrame}
             selectedIndexes={this.state.selectedIndexes}
             cols={5}
             rows={5}

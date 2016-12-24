@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'underscore';
 import LED from '../LED';
 
-const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, onClick}) => {
+const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onClick}) => {
   const handleClick = (index) => {
     if(onClick) {
       onClick(index);
@@ -23,11 +23,19 @@ const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, onClick}) => {
         height: 8
       }}></div>);
     }
+
+    let currentColor = _.findWhere(colors, { id: i + (currentFrame * 125) });
+    let rawColor;
+
+    if(_.has(currentColor, 'color')) {
+      rawColor = currentColor.color;
+    }
+
     leds.push(<LED
       key={i}
       index={i}
       selected={_.contains(selectedIndexes, i)}
-      color={colors[i]}
+      color={rawColor}
       onClick={(index) => handleClick(index)}
     />);
   }
