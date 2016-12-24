@@ -1,8 +1,10 @@
 import React from 'react';
+import Color from 'color';
+
 import FlatButton from 'material-ui/FlatButton';
 import LightbulbOutline from 'material-ui/svg-icons/action/lightbulb-outline';
 import {fullWhite, fullBlack} from 'material-ui/styles/colors';
-import Color from 'color';
+
 import './LED.css';
 
 const style = {

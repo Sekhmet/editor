@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'underscore';
+
 import LED from '../LED';
 
 const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onClick}) => {

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import AppBar from 'material-ui/AppBar';
 import _ from 'underscore';
-import Layer from './components/Layer';
-import FrameSelector from './components/FrameSelector';
+
+import AppBar from 'material-ui/AppBar';
+
 import ColorPalette from './components/ColorPalette';
+import FrameSelector from './components/FrameSelector';
+import Layer from './components/Layer';
+
 import './App.css';
 
 class App extends Component {
