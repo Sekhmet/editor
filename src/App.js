@@ -76,9 +76,21 @@ class App extends Component {
   }
 
   handleFrameChange = (event, index, value) => {
-    this.setState({
-      currentFrame: value
-    });
+    switch (value) {
+      case -1:
+        console.log('Create new frame');
+        break;
+      case -2:
+        //TODO: Duplicate frame
+        console.log('Not implemented');
+        break;
+      default:
+        if (value >= 0) {
+          this.setState({
+            currentFrame: value
+          });
+        }
+    }
   }
 
   render() {
