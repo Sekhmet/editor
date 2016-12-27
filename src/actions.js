@@ -6,3 +6,9 @@ export const setCurrentColor = (color) => {
     }
   };
 };
+
+export const addColorToPresets = () => {
+  return {
+    type: 'ADD_COLOR_TO_PRESETS'
+  };
+};

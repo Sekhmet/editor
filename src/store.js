@@ -2,7 +2,8 @@ import { createStore } from 'redux';
 
 const editor = (
   state = {
-    currentColor: '#a4c639'
+    currentColor: '#a4c639',
+    presetColors: []
   },
   action) => {
   switch (action.type) {
@@ -10,6 +11,14 @@ const editor = (
       return {
         ...state,
         currentColor: action.payload.color
+      };
+    case 'ADD_COLOR_TO_PRESETS':
+      return {
+        ...state,
+        presetColors: [
+          ...state.presetColors,
+          state.currentColor
+        ]
       };
     default:
       return state;

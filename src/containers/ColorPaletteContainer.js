@@ -2,27 +2,22 @@ import { connect } from 'react-redux';
 
 import ColorPalette from '../components/ColorPalette';
 
-import { setCurrentColor } from '../actions';
+import { setCurrentColor, addColorToPresets } from '../actions';
 
-// <ColorPalette
-//   presetColors={this.state.presetColors}
-//   color={this.state.currentColor}
-//   onColorChange={(color) => this.handleColorChange(color)}
-//   onColorSet={() => this.handleColorSet()}
-// />
-
-// TODO: add preset colors
-// NOTE: color should belong to component state
 const mapStateToProps = (state) => {
   return {
-    color: state.currentColor
+    color: state.currentColor,
+    presetColors: state.presetColors
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onColorChange: (color) => {
-      dispatch(setCurrentColor(color));
+      dispatch(setCurrentColor(color.hex));
+    },
+    onColorSet: () => {
+      dispatch(addColorToPresets());
     }
   };
 };
