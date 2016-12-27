@@ -17,6 +17,7 @@ const editor = (
         currentColor: action.payload.color
       };
     case 'ADD_COLOR_TO_PRESETS':
+      if (state.presetColors.indexOf(state.currentColor) !== -1) return state; 
       return {
         ...state,
         presetColors: [
