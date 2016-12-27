@@ -48,3 +48,12 @@ export const setFrame = (id) => {
     }
   };
 };
+
+export const selectLayer = (id) => {
+  return {
+    type: 'SELECT_LAYER',
+    payload: {
+      id
+    }
+  };
+};
