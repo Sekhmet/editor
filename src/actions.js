@@ -57,3 +57,12 @@ export const selectLayer = (id) => {
     }
   };
 };
+
+export const deselectLayer = (id) => {
+  return {
+    type: 'DESELECT_LAYER',
+    payload: {
+      id
+    }
+  };
+};

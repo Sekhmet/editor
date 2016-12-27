@@ -4,7 +4,7 @@ import LED from '../LED';
 
 import './Layer.css';
 
-const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onClick, onSelectAllClick}) => {
+const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onClick, onSelectAllClick, onSelectNoneClick}) => {
   let leds = [];
 
   for (let i = 0; i < cols * rows * layers; i++) {
@@ -20,7 +20,11 @@ const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onC
             label="Select all"
             onClick={() => onSelectAllClick(layerNum)}
           />
-          <RaisedButton className="action-button" label="Select none" />
+          <RaisedButton
+            className="action-button"
+            label="Select none"
+            onClick={() => onSelectNoneClick(layerNum)}
+          />
         </div>
       );
 

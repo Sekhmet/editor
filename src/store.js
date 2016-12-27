@@ -92,6 +92,14 @@ const editor = (
           ...Array(25).fill().map((e, i) => i + 25 * action.payload.id)
         ]
       };
+    case 'DESELECT_LAYER':
+      // TODO: Layer size shouldn't be fixed
+      return {
+        ...state,
+        selectedIndexes: state.selectedIndexes.filter(id => {
+          return id < action.payload.id * 25 || id >= action.payload.id * 25 + 25;
+        })
+      };
     default:
       return state;
   }
