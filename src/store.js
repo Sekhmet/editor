@@ -60,6 +60,23 @@ const editor = (
         frameCount: state.frameCount + 1,
         currentFrame: state.frameCount
       };
+    case 'DUPLICATE_FRAME':
+      return {
+        ...state,
+        frameCount: state.frameCount + 1,
+        currentFrame: state.frameCount,
+        colors: [
+          ...state.colors,
+          ...state.colors
+            .filter(color => color.frame === state.currentFrame)
+            .map(color => {
+              return {
+                ...color,
+                frame: state.frameCount
+              }
+            })
+        ]
+      };
     case 'SET_FRAME':
       return {
         ...state,

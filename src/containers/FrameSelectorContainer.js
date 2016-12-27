@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FrameSelector from '../components/FrameSelector';
-import { addFrame, setFrame } from '../actions.js';
+import { addFrame, duplicateFrame, setFrame } from '../actions.js';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,6 +14,8 @@ const mapDispatchToProps = (dispatch) => {
     onChange: (frame) => {
       if (frame === -1) {
         dispatch(addFrame());
+      } else if (frame === -2) {
+        dispatch(duplicateFrame());
       } else {
         dispatch(setFrame(frame));
       }

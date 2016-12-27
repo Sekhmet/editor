@@ -34,6 +34,12 @@ export const addFrame = () => {
   };
 };
 
+export const duplicateFrame = () => {
+  return {
+    type: 'DUPLICATE_FRAME'
+  };
+};
+
 export const setFrame = (id) => {
   return {
     type: 'SET_FRAME',
