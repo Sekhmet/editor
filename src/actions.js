@@ -12,3 +12,12 @@ export const addColorToPresets = () => {
     type: 'ADD_COLOR_TO_PRESETS'
   };
 };
+
+export const toggleSelection = (id) => {
+  return {
+    type: 'TOGGLE_SELECTION',
+    payload: {
+      id
+    }
+  };
+};

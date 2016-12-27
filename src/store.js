@@ -23,6 +23,21 @@ const editor = (
           state.currentColor
         ]
       };
+    case 'TOGGLE_SELECTION':
+      const id = action.payload.id;
+      if (state.selectedIndexes.includes(id)) {
+        return {
+          ...state,
+          selectedIndexes: state.selectedIndexes.filter(i => i !== id)
+        };
+      }
+      return {
+        ...state,
+        selectedIndexes: [
+          ...state.selectedIndexes,
+          id
+        ]
+      };
     default:
       return state;
   }
