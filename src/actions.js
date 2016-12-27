@@ -27,3 +27,18 @@ export const setColors = () => {
     type: 'SET_COLORS'
   };
 };
+
+export const addFrame = () => {
+  return {
+    type: 'ADD_FRAME'
+  };
+};
+
+export const setFrame = (id) => {
+  return {
+    type: 'SET_FRAME',
+    payload: {
+      id
+    }
+  };
+};

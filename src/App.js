@@ -4,7 +4,7 @@ import _ from 'underscore';
 import AppBar from 'material-ui/AppBar';
 
 import ColorPaletteContainer from './containers/ColorPaletteContainer';
-import FrameSelector from './components/FrameSelector';
+import FrameSelectorContainer from './containers/FrameSelectorContainer';
 import LayerContainer from './containers/LayerContainer';
 
 import './App.css';
@@ -54,11 +54,7 @@ class App extends Component {
         />
         <div className="container">
           <ColorPaletteContainer />
-          <FrameSelector
-            currentFrame={this.state.currentFrame}
-            frameCount={this.state.frameCount}
-            onChange={(frame) => this.handleFrameChange(frame)}
-          />
+          <FrameSelectorContainer />
           <LayerContainer />
         </div>
       </div>

@@ -6,7 +6,8 @@ const editor = (
     presetColors: [],
     selectedIndexes: [],
     colors: [],
-    currentFrame: 0
+    currentFrame: 0,
+    frameCount: 1
   },
   action) => {
   switch (action.type) {
@@ -52,6 +53,17 @@ const editor = (
           })
         ]
       };
+    case 'ADD_FRAME':
+      return {
+        ...state,
+        frameCount: state.frameCount + 1,
+        currentFrame: state.frameCount
+      };
+    case 'SET_FRAME':
+      return {
+        ...state,
+        currentFrame: action.payload.id
+      }
     default:
       return state;
   }
