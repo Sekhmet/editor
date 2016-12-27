@@ -7,7 +7,6 @@ const mapStateToProps = (state) => {
     colors: state.colors.filter(color => {
       return color.frame === state.currentFrame
     }),
-    currentFrame: state.currentFrame,
     selectedIndexes: state.selectedIndexes,
     cols: 5,
     rows: 5,

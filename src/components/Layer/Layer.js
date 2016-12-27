@@ -1,10 +1,9 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import LED from '../LED';
-
 import './Layer.css';
 
-const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onClick, onSelectAllClick, onSelectNoneClick}) => {
+const Layer = ({rows, cols, layers, colors, selectedIndexes, onClick, onSelectAllClick, onSelectNoneClick}) => {
   let leds = [];
 
   for (let i = 0; i < cols * rows * layers; i++) {
@@ -62,4 +61,4 @@ const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onC
   );
 };
 
-export default LEDGrid;
+export default Layer;
