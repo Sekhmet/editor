@@ -3,7 +3,7 @@ import _ from 'underscore';
 
 import AppBar from 'material-ui/AppBar';
 
-import ColorPalette from './components/ColorPalette';
+import ColorPaletteContainer from './containers/ColorPaletteContainer';
 import FrameSelector from './components/FrameSelector';
 import Layer from './components/Layer';
 
@@ -107,12 +107,7 @@ class App extends Component {
           title="Kuubik"
         />
         <div className="container">
-          <ColorPalette
-            presetColors={this.state.presetColors}
-            color={this.state.currentColor}
-            onColorChange={(color) => this.handleColorChange(color)}
-            onColorSet={() => this.handleColorSet()}
-          />
+          <ColorPaletteContainer />
           <FrameSelector
             currentFrame={this.state.currentFrame}
             frameCount={this.state.frameCount}
