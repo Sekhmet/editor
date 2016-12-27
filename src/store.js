@@ -51,7 +51,8 @@ const editor = (
               color: state.currentColor
             }
           })
-        ]
+        ],
+        selectedIndexes: []
       };
     case 'ADD_FRAME':
       return {
