@@ -1,4 +1,5 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 import LED from '../LED';
 
 import './Layer.css';
@@ -10,8 +11,15 @@ const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onC
     if (i % (cols * rows) === 0) {
       let layerNum = i / (cols * rows);
       leds.push(
-        <h5 key={"layer-" + layerNum}>Layer {layerNum + 1}</h5>
+        <h2 className="layer-heading" key={"layer-" + layerNum}>Layer {layerNum + 1}</h2>
       );
+      leds.push(
+        <div className="layer-actions" key={"action-" + layerNum}>
+          <RaisedButton className="action-button" label="Select all" />
+          <RaisedButton className="action-button" label="Select none" />
+        </div>
+      );
+
     }
 
     if (i % cols === 0 && i !== 0) {
