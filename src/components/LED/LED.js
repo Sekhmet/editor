@@ -10,20 +10,33 @@ const style = {
   margin: '8px'
 };
 
-const LED = ({color = '#cccccc', selected, onClick, index}) => {
-  const isColorDark = Color(color).dark();
-  const selectedColor = Color(color).darken(0.3).string();
+class LED extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.selected !== nextProps.selected || this.color !== nextProps.color;
+  }
 
-  return (
-    <div style={style}>
-      <FlatButton
-        onClick={() => onClick(index)}
-        backgroundColor={selected ? selectedColor : color}
-        hoverColor={selectedColor}
-        icon={<LightbulbOutline color={isColorDark ? fullWhite : fullBlack} />}
-      />
-    </div>
-  );
+  render() {
+    const { color, onClick, selected, index } = this.props;
+    this.color = color;
+    this.selected = selected;
+
+    const isColorDark = Color(color).dark();
+    const selectedColor = Color(color).darken(0.3).string();
+
+    return (
+      <div style={style}>
+        <FlatButton
+          onClick={() => onClick(index)}
+          backgroundColor={selected ? selectedColor : color}
+          hoverColor={selectedColor}
+          icon={<LightbulbOutline color={isColorDark ? fullWhite : fullBlack} />}
+        />
+      </div>
+    );
+  }
+}
+LED.defaultProps = {
+  color: '#cccccc'
 };
 
 export default LED;
