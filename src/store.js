@@ -17,7 +17,7 @@ const editor = (
         currentColor: action.payload.color
       };
     case 'ADD_COLOR_TO_PRESETS':
-      if (state.presetColors.indexOf(state.currentColor) !== -1) return state; 
+      if (state.presetColors.indexOf(state.currentColor) !== -1) return state;
       return {
         ...state,
         presetColors: [
@@ -83,6 +83,15 @@ const editor = (
         ...state,
         currentFrame: action.payload.id
       }
+    case 'SELECT_LAYER':
+      // TODO: Layer size shouldn't be fixed
+      return {
+        ...state,
+        selectedIndexes: [
+          ...state.selectedIndexes,
+          ...Array(25).fill().map((e, i) => i + 25 * action.payload.id)
+        ]
+      };
     default:
       return state;
   }
