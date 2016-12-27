@@ -1,3 +1,15 @@
 .separator {
   height: 8px;
 }
+
+.layer-heading:not(:first-child) {
+  margin-top: 48px;
+}
+
+.layer-actions {
+  margin: 16px 0;
+}
+
+.action-button {
+  margin: 0 4px
+}

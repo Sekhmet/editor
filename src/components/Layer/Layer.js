@@ -1,17 +1,33 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 import LED from '../LED';
 
 import './Layer.css';
 
-const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onClick}) => {
+const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onClick, onSelectAllClick, onSelectNoneClick}) => {
   let leds = [];
 
   for (let i = 0; i < cols * rows * layers; i++) {
     if (i % (cols * rows) === 0) {
       let layerNum = i / (cols * rows);
       leds.push(
-        <h5 key={"layer-" + layerNum}>Layer {layerNum + 1}</h5>
+        <h2 className="layer-heading" key={"layer-" + layerNum}>Layer {layerNum + 1}</h2>
       );
+      leds.push(
+        <div className="layer-actions" key={"action-" + layerNum}>
+          <RaisedButton
+            className="action-button"
+            label="Select all"
+            onClick={() => onSelectAllClick(layerNum)}
+          />
+          <RaisedButton
+            className="action-button"
+            label="Select none"
+            onClick={() => onSelectNoneClick(layerNum)}
+          />
+        </div>
+      );
+
     }
 
     if (i % cols === 0 && i !== 0) {

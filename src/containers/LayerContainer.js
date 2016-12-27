@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Layer from '../components/Layer';
-import { toggleSelection } from '../actions';
+import { toggleSelection, selectLayer, deselectLayer } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -19,6 +19,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onClick: (id) => {
       dispatch(toggleSelection(id));
+    },
+    onSelectAllClick: (id) => {
+      dispatch(selectLayer(id));
+    },
+    onSelectNoneClick: (id) => {
+      dispatch(deselectLayer(id));
     }
   };
 };
