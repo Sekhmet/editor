@@ -4,8 +4,8 @@ import { addFrame, duplicateFrame, setFrame } from '../actions.js';
 
 const mapStateToProps = (state) => {
   return {
-    currentFrame: state.currentFrame,
-    frameCount: state.frameCount
+    currentFrame: state.editor.currentFrame,
+    frameCount: state.editor.frameCount
   };
 };
 

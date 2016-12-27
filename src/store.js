@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 const editor = (
   state = {
@@ -106,6 +107,9 @@ const editor = (
 };
 
 export default createStore(
-  editor,
+  combineReducers({
+    editor,
+    routing: routerReducer
+  }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
