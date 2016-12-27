@@ -16,6 +16,7 @@ const ColorPalette = ({presetColors, color, onColorChange, onColorSet}) => {
       />
       <RaisedButton
         style={{marginTop: '8px'}}
+        secondary={true}
         fullWidth={true}
         label="Set colors"
         onClick={() => onColorSet()} />
