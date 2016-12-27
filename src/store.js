@@ -1,6 +1,10 @@
 import { createStore } from 'redux';
 
-const editor = (state = {}, action) => {
+const editor = (
+  state = {
+    currentColor: '#a4c639'
+  },
+  action) => {
   switch (action.type) {
     case 'SET_CURRENT_COLOR':
       return {
