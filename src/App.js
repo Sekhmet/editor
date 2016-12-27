@@ -22,39 +22,6 @@ class App extends Component {
     };
   }
 
-  handleColorSet() {
-    //TODO: Limit presetColors to some amount.
-    if (!_.contains(this.state.presetColors, this.state.currentColor)) {
-      this.setState({
-        presetColors: [
-          ...this.state.presetColors,
-          this.state.currentColor
-        ]
-      });
-    }
-
-    if (this.state.selectedIndexes.length === 0) {
-      return;
-    }
-
-    let that = this;
-    let colors = [];
-
-    //TODO: Make offset flexible
-    //FIXME: This shouldn't look like this. But it works.
-    _.each(this.state.selectedIndexes, function(id) {
-      colors.push({
-        id: id + (that.state.currentFrame * 125),
-        color: that.state.currentColor
-      });
-    });
-
-    this.setState({
-      colors: this.state.colors.concat(colors),
-      selectedIndexes: []
-    });
-  }
-
   handleFrameChange = (value) => {
     switch (value) {
       case -1:
