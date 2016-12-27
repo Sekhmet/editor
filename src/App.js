@@ -70,12 +70,6 @@ class App extends Component {
     });
   }
 
-  handleColorChange(color) {
-    this.setState({
-      currentColor: color.hex
-    });
-  }
-
   handleFrameChange = (value) => {
     switch (value) {
       case -1:
