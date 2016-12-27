@@ -3,7 +3,10 @@ import { createStore } from 'redux';
 const editor = (
   state = {
     currentColor: '#a4c639',
-    presetColors: []
+    presetColors: [],
+    selectedIndexes: [],
+    colors: [],
+    currentFrame: 0
   },
   action) => {
   switch (action.type) {

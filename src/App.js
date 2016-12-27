@@ -5,7 +5,7 @@ import AppBar from 'material-ui/AppBar';
 
 import ColorPaletteContainer from './containers/ColorPaletteContainer';
 import FrameSelector from './components/FrameSelector';
-import Layer from './components/Layer';
+import LayerContainer from './containers/LayerContainer';
 
 import './App.css';
 
@@ -107,14 +107,7 @@ class App extends Component {
             frameCount={this.state.frameCount}
             onChange={(frame) => this.handleFrameChange(frame)}
           />
-          <Layer
-            colors={this.state.colors}
-            currentFrame={this.state.currentFrame}
-            selectedIndexes={this.state.selectedIndexes}
-            cols={5}
-            rows={5}
-            layers={5}
-            onClick={(index) => this.handleLEDClick(index)}/>
+          <LayerContainer />
         </div>
       </div>
     );
