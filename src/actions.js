@@ -21,3 +21,9 @@ export const toggleSelection = (id) => {
     }
   };
 };
+
+export const setColors = () => {
+  return {
+    type: 'SET_COLORS'
+  };
+};

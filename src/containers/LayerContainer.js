@@ -4,7 +4,9 @@ import { toggleSelection } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    colors: state.colors,
+    colors: state.colors.filter(color => {
+      return color.frame === state.currentFrame
+    }),
     currentFrame: state.currentFrame,
     selectedIndexes: state.selectedIndexes,
     cols: 5,

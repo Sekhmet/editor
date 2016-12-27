@@ -38,6 +38,20 @@ const editor = (
           id
         ]
       };
+    case 'SET_COLORS':
+      return {
+        ...state,
+        colors: [
+          ...state.colors,
+          ...state.selectedIndexes.map(id => {
+            return {
+              id,
+              frame: state.currentFrame,
+              color: state.currentColor
+            }
+          })
+        ]
+      };
     default:
       return state;
   }

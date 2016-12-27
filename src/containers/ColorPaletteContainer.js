@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
-
 import ColorPalette from '../components/ColorPalette';
-
-import { setCurrentColor, addColorToPresets } from '../actions';
+import { setCurrentColor, addColorToPresets, setColors } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -18,6 +16,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     onColorSet: () => {
       dispatch(addColorToPresets());
+      dispatch(setColors());
     }
   };
 };
