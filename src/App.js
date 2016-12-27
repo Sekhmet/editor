@@ -22,21 +22,6 @@ class App extends Component {
     };
   }
 
-  handleLEDClick(index) {
-    if (_.contains(this.state.selectedIndexes, index)) {
-      this.setState({
-        selectedIndexes: _.without(this.state.selectedIndexes, index)
-      });
-    } else {
-      this.setState({
-        selectedIndexes: [
-          ...this.state.selectedIndexes,
-          index
-        ]
-      });
-    }
-  }
-
   handleColorSet() {
     //TODO: Limit presetColors to some amount.
     if (!_.contains(this.state.presetColors, this.state.currentColor)) {
