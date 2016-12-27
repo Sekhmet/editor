@@ -1,6 +1,4 @@
 import React from 'react';
-import _ from 'underscore';
-
 import LED from '../LED';
 
 import './Layer.css';
@@ -26,18 +24,15 @@ const LEDGrid = ({rows, cols, layers, colors, selectedIndexes, currentFrame, onC
       );
     }
 
-    let currentColor = _.findWhere(colors, { id: i + (currentFrame * 125) });
+    const currentColor = colors.find(color => color.id === i);
     let rawColor;
-
-    if (_.has(currentColor, 'color')) {
-      rawColor = currentColor.color;
-    }
+    if (currentColor) rawColor = currentColor.color;
 
     leds.push(
       <LED
         key={i}
         index={i}
-        selected={_.contains(selectedIndexes, i)}
+        selected={selectedIndexes.indexOf(i) !== -1}
         color={rawColor}
         onClick={(index) => onClick(index)}
       />
