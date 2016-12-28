@@ -39,5 +39,9 @@ const EditorDrawer = ({open, onRequestChange}) => (
     />
   </Drawer>
 );
+EditorDrawer.propTypes = {
+  open: React.PropTypes.bool,
+  onRequestChange: React.PropTypes.func
+};
 
 export default EditorDrawer;
