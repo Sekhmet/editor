@@ -1,7 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 import RaisedButton from 'material-ui/RaisedButton';
-import LED from '../LED';
-import './Layer.css';
+import LED from './LED';
+
+const LayerHeading = styled.h2`
+  margin-top: 48px;
+`;
+
+const LayerActions = styled.section`
+  margin: 16px 0;
+`;
+
+const ActionButton = styled(RaisedButton)`
+  margin: 0 4px;
+`;
+
+const Separator = styled.div`
+  height: 8px;
+`;
 
 const Layer = ({rows, cols, layers, colors, selectedIndexes, onClick, onSelectAllClick, onSelectNoneClick}) => {
   let leds = [];
@@ -10,33 +26,25 @@ const Layer = ({rows, cols, layers, colors, selectedIndexes, onClick, onSelectAl
     if (i % (cols * rows) === 0) {
       let layerNum = i / (cols * rows);
       leds.push(
-        <h2 className="layer-heading" key={"layer-" + layerNum}>Layer {layerNum + 1}</h2>
+        <LayerHeading key={"layer-" + layerNum}>Layer {layerNum + 1}</LayerHeading>
       );
       leds.push(
-        <div className="layer-actions" key={"action-" + layerNum}>
-          <RaisedButton
-            className="action-button"
+        <LayerActions key={"action-" + layerNum}>
+          <ActionButton
             label="Select all"
             onClick={() => onSelectAllClick(layerNum)}
           />
-          <RaisedButton
-            className="action-button"
+          <ActionButton
             label="Select none"
             onClick={() => onSelectNoneClick(layerNum)}
           />
-        </div>
+        </LayerActions>
       );
-
     }
 
     if (i % cols === 0 && i !== 0) {
       let separatorNum = i / cols;
-      leds.push(
-        <div
-          className="separator"
-          key={"separator-" + (separatorNum - 1)}
-        />
-      );
+      leds.push(<Separator key={"separator-" + (separatorNum - 1)} />);
     }
 
     const currentColor = colors.find(color => color.id === i);
