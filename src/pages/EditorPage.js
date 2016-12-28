@@ -5,6 +5,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import ToolboxContainer from '../containers/ToolboxContainer';
 import FrameSelectorContainer from '../containers/FrameSelectorContainer';
 import LayerContainer from '../containers/LayerContainer';
+import CreateProjectDialog from '../components/CreateProjectDialog';
 
 const FAB = styled(FloatingActionButton)`
   position: fixed;
@@ -20,6 +21,7 @@ const EditorPage = () => (
     <FAB>
       <ContentAdd />
     </FAB>
+    <CreateProjectDialog />
   </div>
 );
 
