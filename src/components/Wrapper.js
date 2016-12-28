@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import EditorAppBarContainer from '../containers/EditorAppBarContainer';
-import DrawerContainer from '../containers/DrawerContainer';
+import EditorDrawerContainer from '../containers/EditorDrawerContainer';
 
 const Container = styled.section`
   padding: 72px 72px;
@@ -11,7 +11,7 @@ const Container = styled.section`
 const Wrapper = ({children}) => (
   <div>
     <EditorAppBarContainer />
-    <DrawerContainer />
+    <EditorDrawerContainer />
     <Container>
       {children}
     </Container>

@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
-import Drawer from 'material-ui/Drawer';
+import EditorDrawer from '../components/EditorDrawer';
 import { setDrawer } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-      docked: false,
       open: state.ui.drawerOpen
   };
 };
@@ -15,4 +14,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Drawer);
+export default connect(mapStateToProps, mapDispatchToProps)(EditorDrawer);
