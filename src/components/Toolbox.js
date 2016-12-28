@@ -16,7 +16,7 @@ const ToolboxButton = styled(RaisedButton)`
   margin: 4px 0;
 `;
 
-const Toolbox = ({presetColors, color, onColorChange, onColorSet}) => {
+const Toolbox = ({presetColors, color, onColorChange, onColorSet, onUndoClick, onRedoClick}) => {
   return (
     <ToolboxWrapper>
       <SketchPicker
@@ -36,11 +36,13 @@ const Toolbox = ({presetColors, color, onColorChange, onColorSet}) => {
         icon={<ContentUndo />}
         fullWidth={true}
         label="Undo"
+        onClick={() => onUndoClick()}
       />
       <ToolboxButton
         icon={<ContentRedo />}
         fullWidth={true}
         label="Redo"
+        onClick={() => onRedoClick()}
       />
     </ToolboxWrapper>
   );

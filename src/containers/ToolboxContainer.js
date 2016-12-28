@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Toolbox from '../components/Toolbox';
 import { setCurrentColor, addColorToPresets, setColors } from '../actions';
+import { ActionCreators } from 'redux-undo';
 
 const mapStateToProps = (state) => {
   return {
@@ -17,7 +18,9 @@ const mapDispatchToProps = (dispatch) => {
     onColorSet: () => {
       dispatch(addColorToPresets());
       dispatch(setColors());
-    }
+    },
+    onUndoClick: () => dispatch(ActionCreators.undo()),
+    onRedoClick: () => dispatch(ActionCreators.redo())
   };
 };
 
