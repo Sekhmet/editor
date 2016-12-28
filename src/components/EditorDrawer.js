@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import ActionHome from 'material-ui/svg-icons/action/home';
@@ -15,17 +16,26 @@ const EditorDrawer = ({open, onRequestChange}) => (
     <MenuItem
       primaryText="Home"
       leftIcon={<ActionHome color={blue500} />}
-      onTouchTap={() => onRequestChange(false)}
+      onTouchTap={() => {
+        browserHistory.push('/');
+        onRequestChange(false);
+      }}
     />
     <MenuItem
       primaryText="Editor"
       leftIcon={<ActionBuild color={red500} />}
-      onTouchTap={() => onRequestChange(false)}
+      onTouchTap={() => {
+        browserHistory.push('/editor');
+        onRequestChange(false);
+      }}
     />
     <MenuItem
       primaryText="About"
       leftIcon={<ActionInfo color={green500} />}
-      onTouchTap={() => onRequestChange(false)}
+      onTouchTap={() => {
+        browserHistory.push('/about');
+        onRequestChange(false);
+      }}
     />
   </Drawer>
 );
