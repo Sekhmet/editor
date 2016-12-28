@@ -47,5 +47,17 @@ const Toolbox = ({presetColors, color, onColorChange, onColorSet, onUndoClick, o
     </ToolboxWrapper>
   );
 };
+Toolbox.propTypes = {
+  color: React.PropTypes.string,
+  presetColors: React.PropTypes.array,
+  onColorChange: React.PropTypes.func,
+  onColorSet: React.PropTypes.func,
+  onUndoClick: React.PropTypes.func,
+  onRedoClick: React.PropTypes.func
+};
+Toolbox.defaultProps = {
+  color: '#a4c639'
+};
+
 
 export default Toolbox;
