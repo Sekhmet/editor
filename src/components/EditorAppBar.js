@@ -10,5 +10,8 @@ const EditorAppBar = ({onLeftIconButtonTouchTap}) => (
     onLeftIconButtonTouchTap={onLeftIconButtonTouchTap}
   />
 );
+EditorAppBar.propTypes = {
+  onLeftIconButtonTouchTap: React.PropTypes.func
+};
 
 export default EditorAppBar;
