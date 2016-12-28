@@ -1,27 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
 import ToolboxContainer from '../containers/ToolboxContainer';
 import FrameSelectorContainer from '../containers/FrameSelectorContainer';
 import LayerContainer from '../containers/LayerContainer';
-import CreateProjectDialog from '../components/CreateProjectDialog';
-
-const FAB = styled(FloatingActionButton)`
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-`;
+import ActionButtonContainer from '../containers/ActionButtonContainer';
+import CreateProjectDialogContainer from '../containers/CreateProjectDialogContainer';
 
 const EditorPage = () => (
   <div>
     <ToolboxContainer />
     <FrameSelectorContainer />
     <LayerContainer />
-    <FAB>
-      <ContentAdd />
-    </FAB>
-    <CreateProjectDialog />
+    <ActionButtonContainer />
+    <CreateProjectDialogContainer />
   </div>
 );
 
