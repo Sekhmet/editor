@@ -1,15 +1,6 @@
 import { connect } from 'react-redux';
-import AppBar from 'material-ui/AppBar';
+import EditorAppBar from '../components/EditorAppBar';
 import { setDrawer } from '../actions';
-
-const mapStateToProps = (state) => {
-  return {
-    title: 'Kuubik',
-    style: {
-      position: 'fixed'
-    }
-  };
-};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -17,4 +8,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppBar);
+export default connect(null, mapDispatchToProps)(EditorAppBar);
