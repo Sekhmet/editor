@@ -75,3 +75,12 @@ export const setDrawer = (open) => {
     }
   };
 };
+
+export const setCreateProjectDialog = (open) => {
+  return {
+    type: 'SET_CREATE_PROJECT_DIALOG',
+    payload: {
+      open
+    }
+  };
+};

@@ -108,13 +108,19 @@ const editor = (
 };
 
 const ui = (state = {
-  drawerOpen: false
+  drawerOpen: false,
+  createProjectDialogOpen: false
 }, action) => {
   switch (action.type) {
     case 'SET_DRAWER':
       return {
         ...state,
         drawerOpen: action.payload.open
+      }
+    case 'SET_CREATE_PROJECT_DIALOG':
+      return {
+        ...state,
+        createProjectDialogOpen: action.payload.open
       }
     default:
       return state;
