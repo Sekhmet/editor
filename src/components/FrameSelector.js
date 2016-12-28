@@ -25,5 +25,10 @@ const FrameSelector = ({currentFrame, frameCount, onChange}) => {
     </SelectField>
   )
 };
+FrameSelector.propTypes = {
+  currentFrame: React.PropTypes.number.isRequired,
+  frameCount: React.PropTypes.number.isRequired,
+  onChange: React.PropTypes.func
+};
 
 export default FrameSelector;
