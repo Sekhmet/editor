@@ -8,7 +8,6 @@ import ActionInfo from 'material-ui/svg-icons/action/info';
 const EditorDrawer = ({open, onRequestChange}) => (
   <Drawer
     docked={false}
-    width={200}
     open={open}
     onRequestChange={onRequestChange}
   >
