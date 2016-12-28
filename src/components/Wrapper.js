@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import AppBarContainer from '../containers/AppBarContainer';
+import EditorAppBarContainer from '../containers/EditorAppBarContainer';
 import DrawerContainer from '../containers/DrawerContainer';
 
 const Container = styled.section`
@@ -10,7 +10,7 @@ const Container = styled.section`
 
 const Wrapper = ({children}) => (
   <div>
-    <AppBarContainer />
+    <EditorAppBarContainer />
     <DrawerContainer />
     <Container>
       {children}
