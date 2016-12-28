@@ -1,13 +1,17 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import RaisedButton from 'material-ui/RaisedButton';
 import { SketchPicker } from 'react-color';
 
-import './ColorPalette.css';
+const ColorPaletteWrapper = styled.div`
+  position: fixed;
+  top: 80px;
+  right: 16px;
+`;
 
 const ColorPalette = ({presetColors, color, onColorChange, onColorSet}) => {
   return (
-    <div className="color-palette">
+    <ColorPaletteWrapper>
       <SketchPicker
         disableAlpha={true}
         presetColors={presetColors}
@@ -20,7 +24,7 @@ const ColorPalette = ({presetColors, color, onColorChange, onColorSet}) => {
         fullWidth={true}
         label="Set colors"
         onClick={() => onColorSet()} />
-    </div>
+    </ColorPaletteWrapper>
   );
 };
 
