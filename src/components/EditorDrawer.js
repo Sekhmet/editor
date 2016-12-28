@@ -4,6 +4,7 @@ import MenuItem from 'material-ui/MenuItem';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import ActionBuild from 'material-ui/svg-icons/action/build';
 import ActionInfo from 'material-ui/svg-icons/action/info';
+import { blue500, red500, green500 } from 'material-ui/styles/colors';
 
 const EditorDrawer = ({open, onRequestChange}) => (
   <Drawer
@@ -13,17 +14,17 @@ const EditorDrawer = ({open, onRequestChange}) => (
   >
     <MenuItem
       primaryText="Home"
-      leftIcon={<ActionHome />}
+      leftIcon={<ActionHome color={blue500} />}
       onTouchTap={() => onRequestChange(false)}
     />
     <MenuItem
       primaryText="Editor"
-      leftIcon={<ActionBuild />}
+      leftIcon={<ActionBuild color={red500} />}
       onTouchTap={() => onRequestChange(false)}
     />
     <MenuItem
       primaryText="About"
-      leftIcon={<ActionInfo />}
+      leftIcon={<ActionInfo color={green500} />}
       onTouchTap={() => onRequestChange(false)}
     />
   </Drawer>
