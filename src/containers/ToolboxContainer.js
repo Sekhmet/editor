@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import ColorPalette from '../components/ColorPalette';
+import Toolbox from '../components/Toolbox';
 import { setCurrentColor, addColorToPresets, setColors } from '../actions';
+import { ActionCreators } from 'redux-undo';
 
 const mapStateToProps = (state) => {
   return {
-    color: state.editor.currentColor,
-    presetColors: state.editor.presetColors
+    color: state.editor.present.currentColor,
+    presetColors: state.editor.present.presetColors
   };
 };
 
@@ -17,8 +18,10 @@ const mapDispatchToProps = (dispatch) => {
     onColorSet: () => {
       dispatch(addColorToPresets());
       dispatch(setColors());
-    }
+    },
+    onUndoClick: () => dispatch(ActionCreators.undo()),
+    onRedoClick: () => dispatch(ActionCreators.redo())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ColorPalette);
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbox);
