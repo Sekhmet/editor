@@ -35,6 +35,12 @@ class LED extends React.Component {
     );
   }
 }
+LED.propTypes = {
+  index: React.PropTypes.number.isRequired,
+  color: React.PropTypes.string,
+  selected: React.PropTypes.bool,
+  onClick: React.PropTypes.func
+};
 LED.defaultProps = {
   color: '#cccccc'
 };
