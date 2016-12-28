@@ -4,8 +4,8 @@ import { setCurrentColor, addColorToPresets, setColors } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    color: state.editor.currentColor,
-    presetColors: state.editor.presetColors
+    color: state.editor.present.currentColor,
+    presetColors: state.editor.present.presetColors
   };
 };
 

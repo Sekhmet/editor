@@ -1,5 +1,6 @@
 import { createStore, combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import undoable from 'redux-undo';
 
 const editor = (
   state = {
@@ -122,7 +123,7 @@ const ui = (state = {
 
 export default createStore(
   combineReducers({
-    editor,
+    editor: undoable(editor),
     ui,
     routing: routerReducer
   }),

@@ -4,10 +4,10 @@ import { toggleSelection, selectLayer, deselectLayer } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    colors: state.editor.colors.filter(color => {
-      return color.frame === state.editor.currentFrame
+    colors: state.editor.present.colors.filter(color => {
+      return color.frame === state.editor.present.currentFrame
     }),
-    selectedIndexes: state.editor.selectedIndexes,
+    selectedIndexes: state.editor.present.selectedIndexes,
     cols: 5,
     rows: 5,
     layers: 5
