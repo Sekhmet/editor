@@ -106,9 +106,24 @@ const editor = (
   }
 };
 
+const ui = (state = {
+  drawerOpen: false
+}, action) => {
+  switch (action.type) {
+    case 'SET_DRAWER':
+      return {
+        ...state,
+        drawerOpen: action.payload.open
+      }
+    default:
+      return state;
+  }
+};
+
 export default createStore(
   combineReducers({
     editor,
+    ui,
     routing: routerReducer
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

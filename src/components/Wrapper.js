@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import AppBar from 'material-ui/AppBar';
+import AppBarContainer from '../containers/AppBarContainer';
+import DrawerContainer from '../containers/DrawerContainer';
 
 const Container = styled.section`
   padding: 72px 72px;
@@ -9,12 +10,8 @@ const Container = styled.section`
 
 const Wrapper = ({children}) => (
   <div>
-    <AppBar
-      style={{
-        position: 'fixed'
-      }}
-      title="Kuubik"
-    />
+    <AppBarContainer />
+    <DrawerContainer />
     <Container>
       {children}
     </Container>

@@ -66,3 +66,12 @@ export const deselectLayer = (id) => {
     }
   };
 };
+
+export const setDrawer = (open) => {
+  return {
+    type: 'SET_DRAWER',
+    payload: {
+      open
+    }
+  };
+};
