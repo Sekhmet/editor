@@ -9,6 +9,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import store from './store';
 
 import Wrapper from './components/Wrapper';
+import IndexPage from './pages/IndexPage';
 import EditorPage from './pages/EditorPage';
 import AboutPage from './pages/AboutPage';
 
@@ -23,6 +24,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router history={history}>
         <Route path="/" component={Wrapper}>
+          <IndexRoute component={IndexPage} />
           <Route path="editor" component={EditorPage} />
           <Route path="about" component={AboutPage} />
         </Route>
