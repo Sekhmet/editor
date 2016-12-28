@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ColorPaletteContainer from '../containers/ColorPaletteContainer';
+import ToolboxContainer from '../containers/ToolboxContainer';
 import FrameSelectorContainer from '../containers/FrameSelectorContainer';
 import LayerContainer from '../containers/LayerContainer';
 
 const EditorPage = () => (
   <div>
-    <ColorPaletteContainer />
+    <ToolboxContainer />
     <FrameSelectorContainer />
     <LayerContainer />
   </div>

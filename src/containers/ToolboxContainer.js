@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ColorPalette from '../components/ColorPalette';
+import Toolbox from '../components/Toolbox';
 import { setCurrentColor, addColorToPresets, setColors } from '../actions';
 
 const mapStateToProps = (state) => {
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ColorPalette);
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbox);

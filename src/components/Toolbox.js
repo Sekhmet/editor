@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import RaisedButton from 'material-ui/RaisedButton';
 import { SketchPicker } from 'react-color';
 
-const ColorPaletteWrapper = styled.div`
+const ToolboxWrapper = styled.div`
   position: fixed;
   top: 80px;
   right: 16px;
 `;
 
-const ColorPalette = ({presetColors, color, onColorChange, onColorSet}) => {
+const Toolbox = ({presetColors, color, onColorChange, onColorSet}) => {
   return (
-    <ColorPaletteWrapper>
+    <ToolboxWrapper>
       <SketchPicker
         disableAlpha={true}
         presetColors={presetColors}
@@ -24,8 +24,8 @@ const ColorPalette = ({presetColors, color, onColorChange, onColorSet}) => {
         fullWidth={true}
         label="Set colors"
         onClick={() => onColorSet()} />
-    </ColorPaletteWrapper>
+    </ToolboxWrapper>
   );
 };
 
-export default ColorPalette;
+export default Toolbox;
