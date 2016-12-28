@@ -68,5 +68,15 @@ const Layer = ({rows, cols, layers, colors, selectedIndexes, onClick, onSelectAl
     </div>
   );
 };
+Layer.propTypes = {
+  rows: React.PropTypes.number.isRequired,
+  cols: React.PropTypes.number.isRequired,
+  layers: React.PropTypes.number.isRequired,
+  colors: React.PropTypes.array,
+  selectedIndexes: React.PropTypes.array,
+  onClick: React.PropTypes.func,
+  onSelectAllClick: React.PropTypes.func,
+  onSelectNoneClick: React.PropTypes.func
+};
 
 export default Layer;
