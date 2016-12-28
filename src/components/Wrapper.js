@@ -1,6 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 import AppBar from 'material-ui/AppBar';
-import './Wrapper.css';
+
+const Container = styled.section`
+  padding: 72px 72px;
+  font-family: 'Roboto', sans-serif;
+`;
 
 const Wrapper = ({children}) => (
   <div>
@@ -10,9 +15,9 @@ const Wrapper = ({children}) => (
       }}
       title="Kuubik"
     />
-    <div className="container">
+    <Container>
       {children}
-    </div>
+    </Container>
   </div>
 );
 
