@@ -8,3 +8,6 @@ Simple editor written with:
 - react-router
 - material-ui
 - styled-components
+
+### License
+Licensed under MIT license.
